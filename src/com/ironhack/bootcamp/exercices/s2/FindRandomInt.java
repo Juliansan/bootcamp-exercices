@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class FindRandomInt {
     public static void main(String[] args) {
 
-        int number = (int)(Math.random()*10);
+        int number = (int) (Math.random() * 10);
         int tries = 5;
         boolean numberFound = false;
         Scanner sc = new Scanner(System.in);
@@ -15,10 +15,17 @@ public class FindRandomInt {
         while (tries >= 0) {
             System.out.println("Input an Integer: ");
             inputNumber = sc.nextInt();
-
             if (inputNumber == number) {
                 numberFound = true;
                 break;
+            }
+
+            if (inputNumber > number) {
+                System.out.println("Input number is higher than number to be guess");
+                System.out.println("tries left: " + tries);
+            } else if (inputNumber < number) {
+                System.out.println("Input number is lower than number to be guess");
+                System.out.println("tries left: " + tries);
             }
             tries--;
         }
